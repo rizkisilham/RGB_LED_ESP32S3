@@ -1,0 +1,28 @@
+#include <FastLED.h>
+
+#define NUM_LEDS 1  // Jumlah LED pada modul WS2812
+#define DATA_PIN 48 // Pin GPIO yang terhubung ke modul WS2812
+
+CRGB leds[NUM_LEDS];
+
+void setup() {
+  FastLED.addLeds<WS2812, DATA_PIN, GRB>(leds, NUM_LEDS);
+  FastLED.setBrightness(50); // Atur kecerahan (0-255)
+}
+
+void loop() {
+  // Nyalakan LED dengan warna merah
+  leds[0] = CRGB::Red;
+  FastLED.show();
+  delay(1000);
+
+  // Nyalakan LED dengan warna hijau
+  leds[0] = CRGB::Green;
+  FastLED.show();
+  delay(1000);
+
+  // Nyalakan LED dengan warna biru
+  leds[0] = CRGB::Blue;
+  FastLED.show();
+  delay(1000);
+}
